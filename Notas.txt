@@ -1,0 +1,5 @@
+Crear proyecto
+- nest new "nombre del proyecto"
+- yarn run start
+- en el curso usamos -> yarn start:dev
+- por default http://localhost:3000/
