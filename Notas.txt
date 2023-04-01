@@ -3,3 +3,5 @@ Crear proyecto
 - yarn run start
 - en el curso usamos -> yarn start:dev
 - por default http://localhost:3000/
+
+- readme -> ctrl+shif+p -> markdown -> open view
