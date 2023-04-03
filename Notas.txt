@@ -5,3 +5,13 @@ Crear proyecto
 - por default http://localhost:3000/
 
 - readme -> ctrl+shif+p -> markdown -> open view
+
+crear modulo CLI
+- nest g mo cars
+
+crear controllers CLI
+- nest g co cars
+
+crear servicio CLI
+- nest g s cars
+- nest g s cars --no-spec  -> para que no cree el archivo de pruebas, --no-spec es una bandera
