@@ -15,3 +15,8 @@ crear controllers CLI
 crear servicio CLI
 - nest g s cars
 - nest g s cars --no-spec  -> para que no cree el archivo de pruebas, --no-spec es una bandera
+
+dependencias{
+    - yarn add uuid
+    - yarn add -D @types/uuid
+}
