@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Patch, Delete, Param, ParseIntPipe, ParseUUIDPipe, Body } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Param, ParseIntPipe, ParseUUIDPipe, Body, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { CreateCarDto } from './dto/create-car.dto';
 
 @Controller('cars')
+@UsePipes(ValidationPipe)
 export class CarsController {
 
     constructor(

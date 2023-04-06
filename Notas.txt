@@ -19,4 +19,5 @@ crear servicio CLI
 dependencias{
     - yarn add uuid
     - yarn add -D @types/uuid
+    - yarn add class-validator class-transformer
 }
