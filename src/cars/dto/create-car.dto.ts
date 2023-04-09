@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+import { IsString, MinLength } from "class-validator";
 
 
 export class CreateCarDto {
@@ -7,5 +7,6 @@ export class CreateCarDto {
     readonly brand: string;
 
     @IsString()
+    @MinLength(3)
     readonly model: string;
 }

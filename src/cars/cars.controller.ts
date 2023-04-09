@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Patch, Delete, Param, ParseIntPipe, ParseUUIDPipe, Body, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
-import { CreateCarDto } from './dto/create-car.dto';
+import { CreateCarDto, UpdateCarDto } from './dto';
 
 @Controller('cars')
-@UsePipes(ValidationPipe)
+// @UsePipes(ValidationPipe)
 export class CarsController {
 
     constructor(
@@ -17,7 +17,7 @@ export class CarsController {
 
     @Get(':id')
     // getCarById(@Param('id', ParseIntPipe) id: string) {
-    getCarById(@Param('id', new ParseUUIDPipe({version:'4'})) id: string) {
+    getCarById(@Param('id', new ParseUUIDPipe({ version: '4' })) id: string) {
         // console.log(+id);
         // return { car: this.cars[+id] };
         // return this.cars[+id];
@@ -28,32 +28,33 @@ export class CarsController {
     @Post()
     createCar(@Body() createCarDto: CreateCarDto) {
         // console.log(createCarDto);
-        return {
-            ok: true,
-            method: 'POST',
-            createCarDto
-        }
+        // return {
+        //     ok: true,
+        //     method: 'POST',
+        //     createCarDto
+        // }
+
+        return this.carsService.create(createCarDto);
     }
 
     @Patch(':id')
     updateCar(
-        @Param('id', ParseIntPipe) id: number,
-        @Body() body: any) {
-        console.log(body);
-        return {
-            ok: true,
-            method: 'PATCH',
-            body
-        }
+        @Param('id', ParseUUIDPipe) id: string,
+        @Body() updateCarDto: UpdateCarDto) {
+
+        // return {
+        //     ok: true,
+        //     method: 'PATCH',
+        //     updateCarDto
+        // }
+
+        return this.carsService.update(id, updateCarDto);
     }
 
     @Delete(':id')
-    deleteCar(@Param('id', ParseIntPipe) id: number) {
+    deleteCar(@Param('id', ParseUUIDPipe) id: string) {
+        // deleteCar(@Param('id', ParseIntPipe) id: number) {
 
-        return {
-            ok: true,
-            method: 'DELETE',
-            id
-        }
+        return this.carsService.delete(id);
     }
 }
