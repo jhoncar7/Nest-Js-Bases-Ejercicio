@@ -1,26 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSeedDto } from './dto/create-seed.dto';
-import { UpdateSeedDto } from './dto/update-seed.dto';
+import { CarsService } from 'src/cars/cars.service';
+import { CARS_SEED } from './data/cars.seed';
+import { BrandsService } from 'src/brands/brands.service';
+import { BRANDS_SEED } from './data/brands.seed';
+
 
 @Injectable()
 export class SeedService {
-  create(createSeedDto: CreateSeedDto) {
-    return 'This action adds a new seed';
-  }
 
-  findAll() {
-    return `This action returns all seed`;
-  }
+  constructor(
+    private readonly carsService: CarsService,
+    private readonly brandsService: BrandsService,
+  ) { }
 
-  findOne(id: number) {
-    return `This action returns a #${id} seed`;
-  }
+  populateDB() {
 
-  update(id: number, updateSeedDto: UpdateSeedDto) {
-    return `This action updates a #${id} seed`;
-  }
+    this.carsService.fillCarsWithSeedDate(CARS_SEED);
+    this.brandsService.fillBrandsWithSeedDate(BRANDS_SEED);
 
-  remove(id: number) {
-    return `This action removes a #${id} seed`;
+    return 'SEED executed';
   }
 }
