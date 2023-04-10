@@ -25,3 +25,6 @@ dependencias{
 -. generar el escale folding (no se como se escribe)
   - nest g resource <nombre> (nest g res <nombre>)
   - nest g resource <nombre> (nest g res <nombre> --no-spec --dry-run)
+
+-. buil de produccion
+  yarn build
