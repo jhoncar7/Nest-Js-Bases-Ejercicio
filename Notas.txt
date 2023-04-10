@@ -28,3 +28,4 @@ dependencias{
 
 -. buil de produccion
   yarn build
+  yarn start:prod
